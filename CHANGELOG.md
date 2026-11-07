@@ -8,60 +8,32 @@ O formato baseia-se em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0
 
 ## [1.0.0] - 2026-11-07
 
-### Lançamento Inicial - Engenharia Web PereiraLabs
+### Lançamento e Adequação de Modelo Oficial - Engenharia Web PereiraLabs
 
-Primeira versão de produção da Landing Page institucional para o escritório **Dinalves Silva | João Pedro - Advogados**, sediado em Três Pontas/MG.
+Versão definitiva da Landing Page institucional para o escritório **Dinalves Silva | João Pedro - Advogados**, sediado em Três Pontas/MG.
 
-### Adicionado
-- **Arquitetura Visual e Responsiva**:
-  - Implementação com Tailwind CSS moderno via CDN com tema personalizado.
-  - Paleta cromática nobre em Navy profundo (`#0f172a`, `#1b2a47`, `#070b14`) e Ouro/Âmbar (`#dfba73`, `#c5a059`), transmitindo tradição, elegância e sobriedade jurídica.
-  - Tipografia de alta distinção integrando Google Fonts: *Cinzel*, *Playfair Display* e *Inter*.
-  - Layout 100% responsivo para smartphones, tablets, notebooks e monitores ultrawide.
+### Atualizado e Customizado
+- **Modelo Oficial Adotado**:
+  - Implementação fiel ao design aprovado pelo cliente, equilibrando tons de Navy (`#0f172a`, `#1b2a47`, `#090d1a`), Gold/Âmbar nobre (`#dfba73`, `#c5a059`) e background clean em `slate-50`.
+  - Tipografia de prestígio forense com *Cinzel*, *Playfair Display* e *Inter*.
 
-- **Top Bar Institucional e Oficial**:
-  - Endereço completo: Rua Dr. Joaquim de Brito, 42 - Apto 201 - Centro, Três Pontas/MG (CEP 37190-000).
-  - Horário de funcionamento: Segunda a Sexta, das 09h às 11h e das 12h30 às 17h30.
-  - Avaliação destacada de 4.9 estrelas no Google Maps.
-  - Canal direto via WhatsApp com o Dr. João Pedro: `+55 35 9875-2270`.
+- **Contatos Telefônicos e Roteamento de WhatsApp**:
+  - **Canal Principal de Atendimento**: Telefone e WhatsApp `(35) 99971-6002` (`https://wa.me/5535999716002`), com acionamento na top bar, botões de ação do Hero, cards de áreas, botão flutuante e formulário.
+  - **Segunda Opção de Atendimento**: Linha direta com o **Dr. João Pedro** `+55 35 9875-2270` (`https://wa.me/553598752270`), disponibilizada na barra superior, no card do titular, nas opções mobile e na seção de contato/rodapé.
 
-- **Seção Hero de Alto Impacto**:
-  - Destaque: *"Mais de 5 décadas de tradição combinadas à precisão jurídica contemporânea"*.
-  - Menção de honra aos titulares: **Dr. Dinalves Silva** (OAB/MG 30.961) e **Dr. João Pedro da Silva Brízida** (OAB/MG 23.897).
-  - Métricas e badges de autoridade (+50 anos de história, 4.9 no Google Maps, conformidade com Provimento 205/2021).
-  - Chamadas para ação (CTAs) para contato imediato e navegação pelas áreas de atuação.
+- **Titulares e Dados de Inscrição Oficial**:
+  - **Dr. Dinalves Silva**: OAB/MG 30.961 — mais de 5 décadas de tradição e prática nos tribunais.
+  - **Dr. João Pedro da Silva Brisida**: OAB/MG 238.897 — Bacharel em Direito pela FATEPS e pós-graduado em Direito Trabalhista pela UNICESUMAR (grafia padronizada: *Brisida*).
 
-- **Seção Institucional e Perfil dos Advogados**:
-  - Card exclusivo do Dr. Dinalves Silva: mais de 50 anos de liderança forense, referência em causas cíveis e conciliações.
-  - Card exclusivo do Dr. João Pedro da Silva Brízida: graduação e formação (FATEPS / UNICESUMAR), especialista em estratégias ágeis e processo eletrônico.
+- **Estrutura de Conteúdo e Seções**:
+  - Top bar com horário (09:00 às 11:00 | 12:30 às 17:30) e nota 4.9 (30 avaliações no Google Maps).
+  - Hero com headline institucional comemorando mais de 5 décadas de tradição jurídica combinadas à precisão contemporânea.
+  - 5 cards didáticos de especialidades: Trabalhista, Cível, Família & Sucessões, Acidentes de Trânsito e Previdenciário/INSS.
+  - Método de atendimento em 4 etapas didáticas.
+  - FAQ com acordeão em JavaScript interativo.
+  - Localização no Centro nobre de Três Pontas/MG com mapa Google Maps embutido.
+  - Formulário com geração inteligente de mensagem para WhatsApp.
 
-- **5 Áreas de Atuação Especializadas**:
-  1. *Direito Trabalhista* (reclamatórias, rescisões, adicionais e acidentes de trabalho).
-  2. *Direito Cível* (contratos, cobranças, execuções e litígios patrimoniais).
-  3. *Família & Sucessões* (inventários judiciais/extrajudiciais, divórcios, partilha de bens).
-  4. *Acidentes de Trânsito* (reparação de danos materiais, corporais, estéticos e seguros).
-  5. *Previdenciário / INSS* (aposentadorias, BPC/LOAS, auxílios-doença e planejamento previdenciário).
-
-- **Método de Atendimento em 4 Etapas**:
-  - Passo 01: Triagem & Acolhimento.
-  - Passo 02: Análise Técnica e Documental.
-  - Passo 03: Estratégia Jurídica & Proposição.
-  - Passo 04: Acompanhamento Contínuo e Transparente.
-
-- **FAQ Interativo em JavaScript Puro**:
-  - Sistema de acordeão fluido com fechamento automático dos demais cards.
-  - Respostas claras para 6 dúvidas recorrentes sobre consultas, documentos, comarcas atendidas e honorários.
-
-- **Mapeamento e Integração de Localização**:
-  - Iframe responsivo incorporado do Google Maps centrado na Rua Dr. Joaquim de Brito, Centro de Três Pontas/MG.
-
-- **Formulário de Contato e Conversão**:
-  - Formulário com formatação automática de mensagem codificada diretamente para a API do WhatsApp.
-  - Botão flutuante permanente de WhatsApp (`https://wa.me/553598752270`) com animação de pulso e acessibilidade.
-
-- **Conformidade Ética OAB**:
-  - Estruturação estritamente compatível com o **Provimento nº 205/2021 do CFOAB** e o Código de Ética e Disciplina da OAB.
-  - Conteúdo com caráter exclusivamente informativo, sem mercantilização ou promessa de resultado.
-
-- **Assinatura Oficial**:
-  - "Desenvolvido por: PereiraLabs - Divisão de Tecnologia e IA | Louzada & Pereira - Soluções Digitais. v1.0.0".
+- **Ética OAB & Assinatura PereiraLabs**:
+  - Estrita observância ao **Provimento nº 205/2021 do CFOAB** (publicidade puramente informativa e sem mercantilização).
+  - Assinatura oficial: `"Desenvolvido por: PereiraLabs - Divisão de Tecnologia e IA | Louzada & Pereira - Soluções Digitais. v1.0.0"`.
