@@ -85,16 +85,14 @@ Acesse: `http://localhost:8000`
 
 ---
 
-## 🌐 Publicação no GitHub Pages
+## 🌐 Hospedagem & Domínio Próprio
 
-Para colocar o site no ar gratuitamente pelo GitHub:
-1. Envie os arquivos para o seu repositório:
-   ```bash
-   git push -u origin main
-   ```
-2. No GitHub, acesse **Settings** > **Pages**.
-3. Em **Branch**, selecione `main` e a pasta `/ (root)`, depois clique em **Save**.
-4. Seu site e o Changelog interativo estarão publicados mundialmente!
+- **Endereço Atual no GitHub Pages:**  
+  👉 [https://andreweua.github.io/dinalves-joaopedro-advogados/](https://andreweua.github.io/dinalves-joaopedro-advogados/)
+- **Changelog Interativo:**  
+  👉 [https://andreweua.github.io/dinalves-joaopedro-advogados/changelog.html](https://andreweua.github.io/dinalves-joaopedro-advogados/changelog.html)
+- **Instruções de Apontamento DNS:**  
+  Consulte o guia passo a passo em [`CONFIGURACAO_DOMINIO.md`](./CONFIGURACAO_DOMINIO.md) para configurar as entradas `A` e `CNAME` no Registro.br, Hostinger ou provedor de sua preferência.
 
 ---
 
