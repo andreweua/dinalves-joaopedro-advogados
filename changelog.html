@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changelog Interativo | Dinalves Silva & João Pedro Advogados</title>
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            cinzel: ['Cinzel', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- React 18, ReactDOM & Babel para execução autônoma instantânea -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    body {
+      background-color: #070b14;
+      color: #f1f5f9;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+  </style>
+</head>
+<body class="selection:bg-emerald-500 selection:text-slate-950">
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useMemo } = React;
+
+    // ESTRUTURA DE DADOS MOCK (v1.0.0 e prévias)
+    const changelogData = [
+      {
+        version: 'v1.0.0',
+        title: 'Lançamento Oficial (Initial Release)',
+        date: '07 de Novembro de 2026',
+        isLatest: true,
+        summary: 'Lançamento oficial da plataforma institucional e jurídica moderna para o escritório Dinalves Silva | João Pedro - Advogados em Três Pontas/MG.',
+        items: [
+          {
+            id: '1-1',
+            type: 'novo',
+            title: 'Arquitetura Base & Landing Page de Alta Performance',
+            description: 'Desenvolvimento completo com Tailwind CSS, layout 100% responsivo, alta velocidade de renderização e identidade visual nobre em tons Navy (#0f172a, #1b2a47) e Gold/Âmbar (#dfba73, #c5a059).',
+            previewImage: {
+              src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
+              alt: 'Interface responsiva e métricas',
+              caption: 'Layout moderno com nota 4.9 no Google Maps, tipografia clássica e carregamento instantâneo'
+            },
+            metrics: [
+              { label: 'Tempo de Carregamento', value: '0.8s' },
+              { label: 'SEO Score', value: '98/100' }
+            ]
+          },
+          {
+            id: '1-2',
+            type: 'novo',
+            title: 'Roteamento Inteligente de WhatsApp Multicanal',
+            description: 'Canal primário de atendimento no número oficial (35) 99971-6002 e rota direta para o Dr. João Pedro (35) 9875-2270 com formatação automática dos dados coletados no formulário.',
+          },
+          {
+            id: '1-3',
+            type: 'novo',
+            title: '5 Cards Didáticos de Especialidades Forenses',
+            description: 'Apresentação clara e didática para Direito Trabalhista, Direito Cível, Família & Sucessões, Acidentes de Trânsito e Previdenciário/INSS com links de acionamento imediato.',
+            previewImage: {
+              src: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800&auto=format&fit=crop',
+              alt: 'Especialidades jurídicas didáticas',
+              caption: 'Linguagem acessível para orientar o cidadão em momentos decisivos'
+            }
+          },
+          {
+            id: '1-4',
+            type: 'melhoria',
+            title: 'Interface Responsiva & Glassmorphism Sofisticado',
+            description: 'Design refinado com suporte a smartphones, tablets e desktops ultrawide, menu mobile interativo e tipografias elegantes Cinzel, Playfair Display e Inter.',
+          },
+          {
+            id: '1-5',
+            type: 'melhoria',
+            title: 'Conformidade Ética com o Provimento nº 205/2021 do CFOAB',
+            description: 'Estruturação com finalidade estritamente institucional e informativa, sem mercantilização da advocacia ou promessa indevida de resultados.',
+          },
+          {
+            id: '1-6',
+            type: 'correcao',
+            title: 'Padronização Nominal e Inscrição OAB',
+            description: 'Ajuste ortográfico da titularidade do Dr. João Pedro da Silva Brisida e retificação de sua inscrição profissional para OAB/MG 238.897 em todos os pontos da aplicação.',
+          }
+        ]
+      },
+      {
+        version: 'v0.9.5-beta',
+        title: 'Homologação Pré-Lançamento & QA',
+        date: '02 de Novembro de 2026',
+        isLatest: false,
+        summary: 'Testes de carga, validação de campos do formulário e responsividade em múltiplos navegadores.',
+        items: [
+          {
+            id: '095-1',
+            type: 'melhoria',
+            title: 'Otimização de Assets e Fontes Google Web',
+            description: 'Pré-conexão DNS aos servidores do Google Fonts para Cinzel, Playfair Display e Inter, eliminando oscilações visuais.',
+          },
+          {
+            id: '095-2',
+            type: 'correcao',
+            title: 'Ajuste de Responsividade no Iframe do Google Maps',
+            description: 'Resolução de transbordamento horizontal em telas de smartphones muito estreitas.',
+          },
+          {
+            id: '095-3',
+            type: 'correcao',
+            title: 'Codificação de Caracteres Especiais na URL do WhatsApp',
+            description: 'Implementação de encodeURIComponent seguro para preservar mensagens com acentos e quebras de linha.',
+          }
+        ]
+      }
+    ];
+
+    // COMPONENTE BADGE
+    function Badge({ variant = 'default', children, className = '' }) {
+      const styles = {
+        novo: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20 hover:bg-emerald-500/20',
+        melhoria: 'bg-blue-500/10 text-blue-400 border-blue-500/20 hover:bg-blue-500/20',
+        correcao: 'bg-red-500/10 text-red-400 border-red-500/20 hover:bg-red-500/20',
+        default: 'bg-slate-800 text-slate-300 border-slate-700'
+      };
+
+      return (
+        <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold tracking-wide transition-colors ${styles[variant] || styles.default} ${className}`}>
+          {children}
+        </span>
+      );
+    }
+
+    // COMPONENTE PRINCIPAL
+    function ChangelogApp() {
+      const [activeFilter, setActiveFilter] = useState('all');
+      const [expanded, setExpanded] = useState({ 'v1.0.0': true });
+
+      const toggleRelease = (version) => {
+        setExpanded(prev => ({ ...prev, [version]: !prev[version] }));
+      };
+
+      const counts = useMemo(() => {
+        const allItems = changelogData.flatMap(r => r.items);
+        return {
+          all: allItems.length,
+          novo: allItems.filter(i => i.type === 'novo').length,
+          melhoria: allItems.filter(i => i.type === 'melhoria').length,
+          correcao: allItems.filter(i => i.type === 'correcao').length,
+        };
+      }, []);
+
+      const filteredReleases = useMemo(() => {
+        return changelogData.map(release => {
+          const items = activeFilter === 'all' 
+            ? release.items 
+            : release.items.filter(i => i.type === activeFilter);
+          return { ...release, items };
+        }).filter(r => r.items.length > 0);
+      }, [activeFilter]);
+
+      return (
+        <div className="min-h-screen bg-[#070b14] text-slate-100 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+          
+          {/* Luz de fundo sutil estilo Linear */}
+          <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-b from-emerald-500/10 via-blue-500/5 to-transparent blur-3xl pointer-events-none -z-10" />
+
+          <div className="max-w-4xl mx-auto">
+            
+            {/* HEADER ESTILO PRODUCT HUNT / LINEAR */}
+            <header className="mb-12 border-b border-slate-800/80 pb-8">
+              <div className="flex items-center justify-between gap-4 mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-medium text-slate-300">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>Changelog & Atualizações de Produto</span>
+                </div>
+                <a 
+                  href="./index.html" 
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-white bg-slate-900/90 hover:bg-slate-800 px-3.5 py-2 rounded-lg border border-slate-800 transition"
+                >
+                  <span>← Voltar ao Site</span>
+                </a>
+              </div>
+
+              <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-2">
+                Histórico de Atualizações
+              </h1>
+              <p className="text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed">
+                Linha do tempo oficial das versões, melhorias contínuas e novas funcionalidades desenvolvidas pela <strong className="text-slate-200">PereiraLabs</strong> para o escritório <strong className="text-slate-200">Dinalves Silva | João Pedro - Advogados</strong>.
+              </p>
+
+              {/* FILTROS NO TOPO */}
+              <div className="flex flex-wrap items-center gap-2 pt-6">
+                <span className="text-xs text-slate-500 font-medium mr-2">Filtrar por:</span>
+                
+                <button
+                  onClick={() => setActiveFilter('all')}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition ${
+                    activeFilter === 'all' 
+                      ? 'bg-white text-slate-950 border-white shadow-lg shadow-white/10' 
+                      : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-white'
+                  }`}
+                >
+                  Tudo ({counts.all})
+                </button>
+
+                <button
+                  onClick={() => setActiveFilter('novo')}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition inline-flex items-center gap-1.5 ${
+                    activeFilter === 'novo' 
+                      ? 'bg-emerald-500 text-slate-950 border-emerald-400 shadow-lg shadow-emerald-500/20' 
+                      : 'bg-slate-900 text-emerald-400 border-slate-800 hover:bg-slate-800'
+                  }`}
+                >
+                  <span>✨ Novidades</span>
+                  <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-slate-800 text-emerald-300">
+                    {counts.novo}
+                  </span>
+                </button>
+
+                <button
+                  onClick={() => setActiveFilter('melhoria')}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition inline-flex items-center gap-1.5 ${
+                    activeFilter === 'melhoria' 
+                      ? 'bg-blue-500 text-slate-950 border-blue-400 shadow-lg shadow-blue-500/20' 
+                      : 'bg-slate-900 text-blue-400 border-slate-800 hover:bg-slate-800'
+                  }`}
+                >
+                  <span>🛠️ Melhorias</span>
+                  <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-slate-800 text-blue-300">
+                    {counts.melhoria}
+                  </span>
+                </button>
+
+                <button
+                  onClick={() => setActiveFilter('correcao')}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition inline-flex items-center gap-1.5 ${
+                    activeFilter === 'correcao' 
+                      ? 'bg-red-500 text-slate-950 border-red-400 shadow-lg shadow-red-500/20' 
+                      : 'bg-slate-900 text-red-400 border-slate-800 hover:bg-slate-800'
+                  }`}
+                >
+                  <span>🐛 Correções</span>
+                  <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-slate-800 text-red-300">
+                    {counts.correcao}
+                  </span>
+                </button>
+              </div>
+            </header>
+
+            {/* TIMELINE VERTICAL */}
+            <div className="relative border-l border-slate-800/80 ml-4 sm:ml-28 pl-6 sm:pl-10 space-y-16">
+              
+              {filteredReleases.map((release) => {
+                const isExpanded = expanded[release.version] ?? true;
+
+                return (
+                  <article key={release.version} className="relative group">
+                    
+                    {/* Nó da Timeline */}
+                    <div className={`absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full border-2 transition-all duration-300 flex items-center justify-center ${
+                      release.isLatest 
+                        ? 'bg-emerald-500 border-slate-950 ring-4 ring-emerald-500/20' 
+                        : 'bg-slate-800 border-slate-950'
+                    }`}>
+                      {release.isLatest && <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>}
+                    </div>
+
+                    {/* Data lateral esquerda (desktop) */}
+                    <div className="hidden sm:block absolute -left-36 top-1 text-right w-24">
+                      <span className="block text-xs font-mono font-semibold text-slate-400">
+                        {release.version}
+                      </span>
+                      <span className="block text-[11px] text-slate-500">
+                        {release.date.split(' de ')[0]} {release.date.split(' de ')[1]?.slice(0, 3)}
+                      </span>
+                    </div>
+
+                    {/* Card da Release */}
+                    <div className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                      release.isLatest 
+                        ? 'bg-slate-900/80 border-emerald-500/30 shadow-2xl shadow-emerald-950/20' 
+                        : 'bg-slate-900/40 border-slate-800/80 hover:border-slate-700'
+                    }`}>
+                      
+                      {/* Topo do Card */}
+                      <div className="p-6 sm:p-7 border-b border-slate-800/60 bg-gradient-to-b from-slate-800/30 to-transparent">
+                        <div className="flex flex-wrap items-center justify-between gap-3 mb-2">
+                          <div className="flex items-center gap-2.5">
+                            <span className={`px-2.5 py-1 rounded-md font-mono text-xs font-bold tracking-wider uppercase border ${
+                              release.isLatest 
+                                ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30' 
+                                : 'bg-slate-800 text-slate-300 border-slate-700'
+                            }`}>
+                              {release.version}
+                            </span>
+                            {release.isLatest && (
+                              <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2 py-0.5 rounded-full">
+                                ✓ Versão Atual
+                              </span>
+                            )}
+                          </div>
+
+                          <div className="flex items-center gap-3 text-xs text-slate-400">
+                            <span>📅 {release.date}</span>
+                            <button
+                              onClick={() => toggleRelease(release.version)}
+                              className="text-slate-400 hover:text-white px-2 py-1 rounded hover:bg-slate-800 transition"
+                            >
+                              {isExpanded ? 'Recolher ▲' : 'Expandir ▼'}
+                            </button>
+                          </div>
+                        </div>
+
+                        <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight mt-3">
+                          {release.title}
+                        </h2>
+                        <p className="text-sm text-slate-300 leading-relaxed mt-2 max-w-3xl">
+                          {release.summary}
+                        </p>
+                      </div>
+
+                      {/* Itens com Accordion */}
+                      {isExpanded && (
+                        <div className="p-6 sm:p-7 space-y-6">
+                          {release.items.map((item) => (
+                            <div key={item.id} className="p-4 rounded-xl border border-transparent hover:border-slate-800 hover:bg-slate-800/30 transition">
+                              <div className="flex items-center gap-2.5 mb-2 flex-wrap">
+                                <Badge variant={item.type}>
+                                  {item.type === 'novo' ? '✨ Novo' : item.type === 'melhoria' ? '🛠️ Melhoria' : '🐛 Correção'}
+                                </Badge>
+                                <h3 className="text-base font-semibold text-slate-100">
+                                  {item.title}
+                                </h3>
+                              </div>
+
+                              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-3">
+                                {item.description}
+                              </p>
+
+                              {item.metrics && (
+                                <div className="flex flex-wrap gap-3 mb-3">
+                                  {item.metrics.map((m, idx) => (
+                                    <div key={idx} className="bg-slate-950 border border-slate-800 px-3 py-1 rounded text-xs">
+                                      <span className="text-slate-400 mr-1.5">{m.label}:</span>
+                                      <strong className="text-emerald-400 font-mono">{m.value}</strong>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+
+                              {item.previewImage && (
+                                <div className="mt-3 rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
+                                  <div className="aspect-video w-full overflow-hidden bg-slate-900">
+                                    <img 
+                                      src={item.previewImage.src} 
+                                      alt={item.previewImage.alt}
+                                      className="w-full h-full object-cover hover:scale-105 transition duration-500"
+                                      loading="lazy"
+                                    />
+                                  </div>
+                                  {item.previewImage.caption && (
+                                    <div className="p-2.5 text-[11px] text-slate-400 border-t border-slate-800/60 bg-slate-950">
+                                      🖼️ {item.previewImage.caption}
+                                    </div>
+                                  )}
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                    </div>
+                  </article>
+                );
+              })}
+
+              {filteredReleases.length === 0 && (
+                <div className="text-center py-12 bg-slate-900/40 rounded-xl border border-slate-800 p-6">
+                  <p className="text-slate-400 text-sm">Nenhum item encontrado para o filtro selecionado.</p>
+                  <button 
+                    onClick={() => setActiveFilter('all')}
+                    className="mt-3 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded text-xs"
+                  >
+                    Limpar Filtros
+                  </button>
+                </div>
+              )}
+
+            </div>
+
+            {/* RODAPÉ */}
+            <footer className="mt-20 pt-8 border-t border-slate-800/80 text-center text-xs text-slate-500 space-y-2">
+              <p>
+                Construído com <strong className="text-slate-300">React</strong>, <strong className="text-slate-300">Tailwind CSS</strong> e padrões <strong className="text-slate-300">Shadcn UI</strong>.
+              </p>
+              <p>
+                Desenvolvido por: <strong className="text-slate-300">PereiraLabs - Divisão de Tecnologia e IA</strong> | Louzada & Pereira - Soluções Digitais
+              </p>
+            </footer>
+
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<ChangelogApp />);
+  </script>
+</body>
+</html>

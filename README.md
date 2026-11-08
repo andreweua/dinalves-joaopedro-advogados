@@ -41,10 +41,23 @@ O escritório une a autoridade de mais de cinco décadas de prática forense à 
 dinalves-joaopedro-advogados/
 │
 ├── index.html                   # Landing Page oficial com design aprovado
+├── changelog.html               # Changelog Interativo estilo Linear / Product Hunt (React + Shadcn UI)
 ├── README.md                    # Documentação institucional para exibição no GitHub
-├── CHANGELOG.md                 # Histórico completo de versões (v1.0.0)
+├── CHANGELOG.md                 # Histórico completo de versões em Markdown (v1.0.0)
 ├── PEREIRALABS_INSTRUCOES.md    # Manual operacional completo de execução e deploy
 ├── executar.bat                 # Script de execução rápida para Windows
+│
+├── changelog/                   # Projeto Componentizado React + Vite + Tailwind + Shadcn UI
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── ChangelogTimeline.tsx  # Componente Timeline Interativo
+│   │   │   └── ui/                    # Primitivas de UI (Badge, Button, Accordion)
+│   │   ├── data/changelogData.ts      # Dados mockados da v1.0.0
+│   │   ├── types/changelog.ts         # Tipagem TypeScript
+│   │   └── App.tsx                    # Aplicação de demonstração
+│   ├── package.json
+│   └── vite.config.ts
+│
 └── .agents/
     └── skills/
         └── pereiralabs/

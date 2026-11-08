@@ -34,6 +34,13 @@ Versão definitiva da Landing Page institucional para o escritório **Dinalves S
   - Localização no Centro nobre de Três Pontas/MG com mapa Google Maps embutido.
   - Formulário com geração inteligente de mensagem para WhatsApp.
 
+- **Changelog Interativo Estilo Linear / Product Hunt**:
+  - Implementação de componente React com Vite, Tailwind CSS e padrões Shadcn UI em `changelog/` e `changelog.html`.
+  - Timeline vertical com nó pulsante na versão de produção (`v1.0.0`).
+  - Badges coloridas por categoria: [Novo] verde emerald, [Melhoria] azul e [Correção] vermelho.
+  - Filtros no topo com contagem em tempo real e accordion colapsável.
+  - Preview visual de imagens e métricas de desempenho.
+
 - **Ética OAB & Assinatura PereiraLabs**:
   - Estrita observância ao **Provimento nº 205/2021 do CFOAB** (publicidade puramente informativa e sem mercantilização).
   - Assinatura oficial: `"Desenvolvido por: PereiraLabs - Divisão de Tecnologia e IA | Louzada & Pereira - Soluções Digitais. v1.0.0"`.
