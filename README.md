@@ -2,11 +2,16 @@
 
 Landing Page institucional de alta performance desenvolvida pela **PereiraLabs - Divisão de Tecnologia e IA** para o escritório **Dinalves Silva | João Pedro - Advogados**, sediado em Três Pontas/MG.
 
+- **Desenvolvedor:** Andrew Pereira
+- **GitHub Oficial:** [https://github.com/andreweua](https://github.com/andreweua)
+- **Repositório:** [https://github.com/andreweua/dinalves-joaopedro-advogados](https://github.com/andreweua/dinalves-joaopedro-advogados)
+- **Manual de Operação:** Consulte [PEREIRALABS_INSTRUCOES.md](./PEREIRALABS_INSTRUCOES.md)
+
 ---
 
 ## 🏛️ Sobre o Cliente e Titulares
 
-O escritório une a respeitada autoridade de mais de cinco décadas de prática forense à precisão técnica e agilidade contemporânea:
+O escritório une a autoridade de mais de cinco décadas de prática forense à precisão técnica e agilidade contemporânea:
 - **Dr. Dinalves Silva** — **OAB/MG 30.961**: Mais de 50 anos de história ininterrupta na advocacia mineira, notório saber em Direito Cível e Trabalhista.
 - **Dr. João Pedro da Silva Brisida** — **OAB/MG 238.897**: Bacharel em Direito pela FATEPS, pós-graduado em Direito Trabalhista pela UNICESUMAR, atuação combativa em Direito Trabalhista, Cível, Família, Acidentes e Previdenciário.
 
@@ -35,25 +40,29 @@ O escritório une a respeitada autoridade de mais de cinco décadas de prática 
 ```
 dinalves-joaopedro-advogados/
 │
-├── index.html        # Landing Page oficial com design aprovado
-├── CHANGELOG.md      # Registro formal de versões (v1.0.0)
-└── README.md         # Documentação institucional e técnica
+├── index.html                   # Landing Page oficial com design aprovado
+├── README.md                    # Documentação institucional para exibição no GitHub
+├── CHANGELOG.md                 # Histórico completo de versões (v1.0.0)
+├── PEREIRALABS_INSTRUCOES.md    # Manual operacional completo de execução e deploy
+├── executar.bat                 # Script de execução rápida para Windows
+└── .agents/
+    └── skills/
+        └── pereiralabs/
+            └── SKILL.md         # Skill do projeto com as diretrizes PereiraLabs
 ```
 
 ---
 
 ## 🚀 Como Executar Localmente
 
-Abra diretamente o arquivo `index.html` em seu navegador de preferência ou inicialize um servidor HTTP local:
-
-```bash
-# Python
-python -m http.server 8000
-
-# Node.js
-npx serve .
-```
-Acesse: `http://localhost:8000`
+Você pode:
+1. Dar um duplo clique no arquivo `executar.bat` (Windows).
+2. Ou abrir diretamente o arquivo `index.html` em seu navegador.
+3. Ou rodar um servidor HTTP local:
+   ```bash
+   python -m http.server 8000
+   ```
+   Acesse: `http://localhost:8000`
 
 ---
 
